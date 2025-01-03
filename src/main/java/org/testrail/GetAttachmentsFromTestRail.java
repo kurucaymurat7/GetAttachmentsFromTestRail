@@ -18,6 +18,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 
@@ -31,8 +32,10 @@ public class GetAttachmentsFromTestRail {
     public static final String pathForAttachmentsFolder = System.getProperty("user.dir") + "\\src\\main\\java\\org\\attachmentsfolder\\";
     public final String filePathforExcel = pathForAttachmentsFolder + "attachments.xlsx";
     public static final String filePathforAllJPGs = pathForAttachmentsFolder + "allJPGs\\";
-    public final String BASE_URL = "https://nupsys.testrail.io/index.php?/api/v2/";
-    public final String basic64Credentials = "basic bWt1cnVjYXlAbnVwc3lzLmNvbTpRdWFsaXR5MTIu";
+    public final String BASE_URL = "https://xxxxxxxxx.testrail.io/index.php?/api/v2/";
+    private final String username = "username";
+    private final String password = "password";
+    public final String basic64Credentials  = "Basic " + Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
     public final String RUN_ID = "117";
     @BeforeClass()
     public static void beforeClass() throws Exception {
